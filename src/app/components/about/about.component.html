@@ -5,8 +5,7 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Por que escolher nossos serviços?</h2>
                 <div class="space-y-4">
                     <div class="flex items-center gap-3" style="opacity: 1; transform: none;">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="w-6 h-6 text-green-400 flex-shrink-0">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -15,8 +14,7 @@
                         <span class="text-blue-100 text-lg">Mais de 25 anos de experiência</span>
                     </div>
                     <div class="flex items-center gap-3" style="opacity: 1; transform: none;">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="w-6 h-6 text-green-400 flex-shrink-0">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -46,8 +44,7 @@
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg><span class="text-blue-100 text-lg">Atendimento 24/7</span></div>
                     <div class="flex items-center gap-3" style="opacity: 1; transform: none;">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="w-6 h-6 text-green-400 flex-shrink-0">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -56,21 +53,43 @@
                         <span class="text-blue-100 text-lg">Orçamento gratuito</span>
                     </div>
                     <div class="flex items-center gap-3" style="opacity: 1; transform: none;">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="w-6 h-6 text-green-400 flex-shrink-0">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
-                        <span class="text-blue-100 text-lg">Atendimento a Indústrias, Sítios, Fazendas, Chácaras, Empresas de Saneamento e ao Público em Geral.</span>
+                        <span class="text-blue-100 text-lg">Atendimento a Indústrias, Sítios, Fazendas, Chácaras,
+                            Empresas de Saneamento e ao Público em Geral.</span>
                     </div>
                 </div>
             </div>
             <div class="relative" style="opacity: 1; transform: none;">
                 <div class="glass-effect rounded-2xl p-8">
-                    <img class="w-full h-64 object-cover rounded-xl mb-6" src="../assets/img/welcome.gif" alt="Perfuração de poço artesiano em andamento" > 
-                    <!-- <video src="../assets/video/welcome.mp4" controls autoplay muted loop class="w-full h-64 object-cover rounded-xl mb-6"></video> -->
+                    <!-- <img class="w-full h-64 object-cover rounded-xl mb-6" src="../assets/img/welcome.gif" alt="Perfuração de poço artesiano em andamento" > 
+                     <video src="../assets/video/welcome.mp4" controls autoplay muted loop class="w-full h-64 object-cover rounded-xl mb-6"></video> 
+                    -->
+                    <div class="relative w-full h-64 mb-6">
+                        <ng-container *ngIf="midias.length">
+                            <ng-container [ngSwitch]="midias[carrosselIndex].type">
+                                <img *ngSwitchCase="'img'" [src]="midias[carrosselIndex].src"
+                                    [alt]="midias[carrosselIndex].alt"
+                                    class="w-full h-64 object-cover rounded-xl transition-all duration-500" />
+                                <video *ngSwitchCase="'video'" [src]="midias[carrosselIndex].src" controls autoplay
+                                    muted loop
+                                    class="w-full h-64 object-cover rounded-xl transition-all duration-500"></video>
+                            </ng-container>
+                        </ng-container>
+                        <!-- Botões de navegação -->
+                        <button (click)="anterior()"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/70 rounded-full p-2">
+                            &#8592;
+                        </button>
+                        <button (click)="proximo()"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/70 rounded-full p-2">
+                            &#8594;
+                        </button>
+                    </div>
                     <div class="grid grid-cols-3 gap-4 text-center">
                         <div>
                             <div class="text-3xl font-bold text-white">300+</div>
